@@ -1,0 +1,34 @@
+2) prazo-service — Tarefas
+Core
+
+ Consumir evento order.created do Kafka.
+
+ Implementar cálculo de prazo baseado em:
+
+origem/destino
+
+quantidade de itens
+
+tempo base configurável
+
+ Persistir cálculo no MongoDB.
+
+ Publicar evento delivery.estimated no Kafka.
+
+Performance
+
+ Implementar cache in-memory (Caffeine) para tabelas de prazo.
+
+ Tornar service thread-safe (é típico em empresas lá fora).
+
+Resiliência
+
+ Circuit breaker (Resilience4j) para acessar Mongo.
+
+ Implementar DLQ (Dead Letter Queue) para erros.
+
+Testes
+
+ Testcontainers com Kafka + Mongo.
+
+ Testar consumidor Kafka end-to-end.
